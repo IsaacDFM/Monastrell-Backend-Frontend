@@ -10,14 +10,14 @@ const Products = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:4000/api/products')
+    fetch(`${import.meta.env.VITE_API_URL}/api/products`)
       .then(res => res.json())
       .then(data => {
         setProducts(data);
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, []);
+}, []);
 
   const handleOpenModal = (product) => {
     setSelectedProduct(product);
